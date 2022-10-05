@@ -1,0 +1,34 @@
+variable "environment" {
+  description = "The Deployment environment"
+  type        = string
+}
+
+variable "clustername" {
+  description = "Cluster Name"
+  type        = string
+}
+
+variable "oidc_url" {
+  description = "OIDC URL"
+  type        = string
+}
+
+variable "oidc_arn" {
+  description = "OIDC ARN"
+  type        = string
+}
+
+variable "awslb_version" {
+  description = "AWS Helm Chart Version"
+  type        = string
+}
+
+variable "kms_key_arn" {
+  description = "KMS Key ARN"
+  type        = string
+}
+
+variable "alb_s3_bucket" {
+  description = "Name of the S3 Buckets storing ALB Logs"
+  type        = string
+}

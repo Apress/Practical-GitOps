@@ -1,0 +1,38 @@
+{
+	"Version": "2012-10-17",
+	"Statement": [
+		{
+			"Sid": "RegionLockPolicy",
+			"NotAction": [
+                "acm:*",
+                "awsbillingconsole:*",
+                "budgets:*",
+                "ce:*",
+                "globalaccelerator:*",
+                "health:*",
+                "iam:*",
+                "kms:*",
+                "networkmanager:*",
+                "organizations:*",
+                "pricing:*",
+                "route53:*",
+                "route53domains:*",
+                "sts:*",
+                "support:*",
+				"s3:*"
+			],
+			"Resource": "*",
+			"Effect": "Deny",
+			"Condition": {
+				"StringNotEquals": {
+					"aws:RequestedRegion": [
+						"us-east-1",
+						"us-east-2",
+						"us-west-1",
+						"us-west-2"
+					]
+				}
+			}
+		}
+	]
+}  

@@ -1,0 +1,13 @@
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Sid": "ESPolicy",
+            "Action": [
+                "es:ESHttp*"
+            ],
+            "Resource": "arn:aws:es:${aws_region}:${account_id}:domain/${es_domain_name}",
+            "Effect": "Allow"
+        }
+    ]
+}

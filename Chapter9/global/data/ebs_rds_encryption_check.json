@@ -1,0 +1,31 @@
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Sid": "DenyUnEncryptedEBSVolumes",
+            "Effect": "Deny",
+            "Action": "ec2:CreateVolume",
+            "Resource": "arn:aws:ec2:*:*:volume/*",
+            "Condition": {
+                "Bool": {
+                    "ec2:Encrypted": "false"
+                }
+            }
+        },
+        {
+            "Sid": "DenyUnEncryptedRDS",
+            "Effect": "Deny",
+            "Action": [
+                "rds:CreateDBInstance"
+            ],
+            "Resource": [
+                "*"
+            ],
+            "Condition": {
+                "Bool": {
+                    "rds:StorageEncrypted": "false"
+                }
+            }
+        }
+    ]
+}

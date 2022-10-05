@@ -1,0 +1,40 @@
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Sid": "LimitEC2Instances",
+            "Effect": "Deny",
+            "Action": [
+                "ec2:*"
+            ],
+            "Resource": "*",
+            "Condition": {
+                "ForAnyValue:StringNotLike": {
+                    "ec2:InstanceType": [
+                        "*.micro",
+                        "*.medium",
+                        "*.small",
+                        "*.nano"
+                    ]
+                }
+            }
+        },
+        {
+            "Sid": "LimitRDSInstances",
+            "Effect": "Deny",
+            "Action": [
+                "rds:*"
+            ],
+            "Resource": "*",
+            "Condition": {
+                "ForAnyValue:StringNotLike": {
+                    "rds:DatabaseClass": [
+                        "*.micro",
+                        "*.small",
+                        "*.nano"
+                    ]
+                }
+            }
+        }        
+    ]
+}

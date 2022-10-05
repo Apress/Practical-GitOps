@@ -1,0 +1,23 @@
+version: '3.7'
+services:
+  postgres:
+      container_name: postgres_db
+      image: postgres:alpine3.14
+      restart: always
+      environment:
+        - POSTGRES_USER=postgres
+        - POSTGRES_PASSWORD=postgres
+        - POSTGRES_DB=postgres
+      ports:
+        - '5432:5432'
+  springboot:
+      container_name: spring_boot
+      build: .
+      environment:
+        - DB_PORT=5432
+        - DB_HOST=postgres_db
+        - DB_NAME=postgres
+        - DB_USERNAME=postgres
+        - DB_PASSWORD=postgres
+      ports:
+        - '8080:8080'

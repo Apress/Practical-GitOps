@@ -1,0 +1,32 @@
+name: "Sample GHA Workflow"
+env:
+  GLOBAL_VARIABLE: "Can be accessed by all jobs"
+  API_TOKEN: ${{ secrets.API_TOKEN }}
+
+on:
+  push:
+    branches:
+        - main
+    paths:
+      - "infra/**"
+  pull_request:
+    branches:
+        - main
+
+jobs:
+  job1:
+    runs-on: ubuntu-latest
+    env:
+      LOCAL_VARIABLE: "This is a Job1 Variable"
+    defaults:
+      run:
+        working-directory: "job1"
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: job1_global_variable
+        run: echo "job1 with $GLOBAL_VARIABLE $API_TOKEN"
+
+      - name: job1_local_variable
+        run: echo "job1 with $LOCAL_VARIABLE"

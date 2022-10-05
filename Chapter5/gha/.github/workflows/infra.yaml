@@ -1,0 +1,43 @@
+# Github Actions Workflow file that automates the terraform workflow.
+# UnComment this file for section 5.4.1 - Terraform Automation with Github Actions
+# name: practicalgitops.infra
+
+# on:
+#   push:
+#     branches:
+#       - main
+#     paths:
+#       - "infra/**"
+#       - "!**/README.md"
+
+# jobs:
+#   terraform:
+#     name: "Terraform"
+#     runs-on: ubuntu-latest
+#     defaults:
+#       run:
+#         working-directory: "infra"
+#     steps:
+#       - name: Checkout
+#         uses: actions/checkout@v2
+
+#       - name: Setup Terraform
+#         uses: hashicorp/setup-terraform@v1
+#         with:
+#           terraform_version: 1.1.0
+#           cli_config_credentials_token: ${{ secrets.TF_API_TOKEN }}
+
+#       - name: Terraform Init
+#         id: init
+#         run: terraform init -backend-config=gha.hcl
+      
+#       - name: Terraform Validate
+#         id: validate
+#         run: terraform validate -no-color
+
+#       - name: Terraform Plan
+#         id: plan
+#         run: terraform plan -no-color
+
+#       - name: Terraform Apply
+#         run: terraform apply

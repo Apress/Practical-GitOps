@@ -1,0 +1,40 @@
+#@CHANGE
+accounts = {
+  dev = {
+    name  = "dev"
+    email = "email+dev@somedomain.com"
+  },
+  identity = {
+    name  = "identity"
+    email = "email+identity@somedomain.com"
+  },
+  prod = {
+    name  = "prod"
+    email = "email+prod@somedomain.com"
+  },
+  staging = {
+    name  = "staging"
+    email = "email+staging@somedomain.com"
+  }
+}
+
+users = {
+  raadha = {
+    username = "raadha"
+    pgp_key  = "raadha.pub"
+    role     = "developer"
+  },
+  sita = {
+    username = "sita"
+    pgp_key  = "sita.pub"
+    role     = "admin"
+  },
+  padma = {
+    username = "padma"
+    pgp_key  = "padma.pub"
+    role     = "readonly"
+  }
+}
+
+org_name = "gitops"
+domain   = "gitops.somedomain.com"
